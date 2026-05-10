@@ -103,9 +103,9 @@ async def assess_candidate(profile: CandidateProfile):
         
         # Determine recommended level
         level = "Junior"
-        if overall >= 8:
+        if overall >= 7.5:
             level = "Senior / Lead"
-        elif overall >= 5.5:
+        elif overall >= 4.5:
             level = "Mid-Level"
             
         return CapabilityAssessment(

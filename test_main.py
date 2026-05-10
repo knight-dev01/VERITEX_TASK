@@ -34,3 +34,19 @@ def test_assess_senior_candidate():
     data = response.json()
     assert data["candidate_name"] == "Jane Doe"
     assert data["recommended_level"] == "Senior / Lead"
+
+def test_assess_mid_level_candidate():
+    response = client.post(
+        "/assess",
+        json={
+            "name": "Alex Mid",
+            "years_of_experience": 4.0,
+            "skills": ["Python", "Docker", "SQL"],
+            "certifications": ["AWS Practitioner"],
+            "leadership_experience": False
+        }
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert data["candidate_name"] == "Alex Mid"
+    assert data["recommended_level"] == "Mid-Level"
